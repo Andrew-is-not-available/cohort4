@@ -14,6 +14,6 @@ test('Does that add function work?', () => {
     expect(functions.add(101,202)).toBe(303);
 });
 
-test('Does that add function work?', () => {
-    expect(functions.isEven()).toBe(false);
+test('Check the sizes', () => {
+    expect(functions.isEven(2)).toBe(false);
 });

@@ -15,11 +15,14 @@ const functions = {
         return num1 - num2;
     },
 
-    isEven:  (num) => {
-        return(false);
-    }
-
     
 };
 
+// function isEven(num) {
+//     var result = isEven();
+//     console.log(result);
+//     return false
+// }
+
 export default functions;
+
