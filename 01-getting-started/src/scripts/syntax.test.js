@@ -30,3 +30,28 @@ test('Check if returned value is undefined', () => {
     expect(functions.checkUndefined()).toBe(undefined);
 
 });
+test('Check a branch statment', () => {
+    expect(functions.checkBranch(8)).toBe(true);
+    expect(functions.checkBranch(3)).toBe(false);
+});
+test('Check a function', () => {
+    expect(functions.watchMeSing("LaDeeDa")).toBe("LaDeeDa");
+    expect(functions.watchMeSing(String)).toBe(String);
+    expect(functions.watchMeSing(Boolean)).toBe(Boolean);
+    expect(functions.watchMeSing(1)).toBe(1);
+    expect(functions.watchMeSing(Number)).toBe(Number);
+    expect(functions.watchMeSing(undefined)).toBe(undefined);
+    expect(functions.watchMeSing(null)).toBe(null);
+});
+test('Add to front of an array', () => {
+    expect(functions.addOntheFront("pizzaz")).
+    toBe("pizzaz");
+});
+test('Add to back of an array', () => {
+    expect(functions.addOnTheBack("palatability")).
+    toBe("palatability");
+});
+test('Update one of the ingredients in the array', () => {
+    expect(functions.updateAValue(1,"Chinese Garlic")).
+    toBe("Chinese Garlic");
+});

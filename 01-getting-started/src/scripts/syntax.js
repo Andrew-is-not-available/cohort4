@@ -1,16 +1,4 @@
 
-
-
-
-
-// sample if / else
-// functions
-// parameters
-// returns
-// arrays
-// add to the front
-// add to the end
-// update values
 // loops 
 // for
 // for/in
@@ -40,13 +28,14 @@ const functions = {
     checkMyArrayTrue:  () => {
         let resultTrue = Array.isArray(["onion","purple garlic",
         "celery","carrots","frozen tomatoes"]);
-        return resultTrue;      
+        return resultTrue;
+
     },
     checkMyArrayFalse:  () => {
 //Easily changed by removing the [SQUARE BRACKETS] to cause fail
         let resultFalse= Array.isArray("onion","purple garlic",
         "celery","carrots","frozen tomatoes");
-        return resultFalse;        
+        return resultFalse; 
     },
 
 // dictionary / objects
@@ -61,7 +50,41 @@ const functions = {
         var noDefinition;
 
     },
+// sample if / else
+    checkBranch: (num) => {
+        if (num % 2 == 0) return true;
+        return false;
+    },
+// functions, parameters, returns,
+// check it returns every data type
+    watchMeSing: (song) => {
+        return song;
+    },
+// arrays
+// add to the front
+    addOntheFront: (value) => {
+        let ingredients = ["onion","purple garlic",
+        "celery","carrots","frozen tomatoes"]
+        ingredients.unshift(value);
+        return ingredients[0];
+    },
+// arrays
+// add to the end
+    addOnTheBack: (value) => {
+        let ingredients = ["onion","purple garlic",
+        "celery","carrots","frozen tomatoes"]
+        ingredients.push(value);
+        return ingredients[ingredients.length-1];
+    },
 
+// arrays
+// update values
+    updateAValue: (index,string) => {
+        let ingredients = ["onion","purple garlic",
+        "celery","carrots","frozen tomatoes"]
+        ingredients[index-1] = string
+        return ingredients[index-1];
+    }
 };
 
 
