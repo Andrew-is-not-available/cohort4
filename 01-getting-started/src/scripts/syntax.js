@@ -1,4 +1,3 @@
-// define attributes / variables
 // number
 // string
 // boolean
@@ -23,3 +22,26 @@
 // declare object
 // lookup key to retrieve value
 
+
+const functions = {
+    isNumber: (num) => {
+        if (num*1 !==num) return false;
+        return true;
+    },
+    
+    isString: (text) => {
+        return text + " is a string";
+        return false;
+    },
+
+    isBoolean: (a,b) => {
+        return (a>b);
+    }
+
+    // isArray:  () => {
+    //     var veggies 
+    // }
+};
+
+
+export default functions;
