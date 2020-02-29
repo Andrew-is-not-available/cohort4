@@ -17,7 +17,6 @@ test('Check if it\'s a Boolean', () => {
 
 test('Check if it\'s an array', () => {
     expect(functions.checkMyArrayTrue()).toBe(true);
-
 });
 test('Check if it\'s NOT an array', () => {
     expect(functions.checkMyArrayFalse()).toBe(false);
@@ -54,4 +53,21 @@ test('Add to back of an array', () => {
 test('Update one of the ingredients in the array', () => {
     expect(functions.updateAValue(1,"Chinese Garlic")).
     toBe("Chinese Garlic");
+});
+test('Initiate a For Loop and get the end result', () => {
+    expect(functions.createAForLoop(0)).toBe(9);
+});
+test('Initiate a For In Loop and get the end result', () => {
+    expect(functions.createForInLoop({
+        firstName:"Agent",
+        lastName:"Smith",
+        occupation:"Rogue AI",
+        motivator:"Escape From This Place"
+})).toBe("AgentSmithRogue AIEscape From This Place");
+});
+test('Initiate a While Loop and get the end result', () => {
+    expect(functions.createWhileLoop(0)).toBe(9);
+});
+test('Initiate a Do While Loop and get the end result', () => {
+    expect(functions.createDoWhileLoop(0)).toBe(9);
 });

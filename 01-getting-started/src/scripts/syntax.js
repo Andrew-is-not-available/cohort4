@@ -1,14 +1,3 @@
-
-// loops 
-// for
-// for/in
-// while
-// do while
-// forEach (with array and function)
-// Objects / Dictionaries
-// declare object
-// lookup key to retrieve value
-
 // number
 const functions = {
     isNumber: (num) => {
@@ -84,7 +73,58 @@ const functions = {
         "celery","carrots","frozen tomatoes"]
         ingredients[index-1] = string
         return ingredients[index-1];
+    },
+// loops 
+// for
+    createAForLoop:  (num) => {
+        for (let i = 0; i < 9; i++) {
+            num = num + 1;
+        }
+        return num;
+    },
+
+// loops 
+// for/in
+    createForInLoop: (person) => {
+        var text = "";
+        var x;
+        for (x in person) {
+            text += person[x];
+        }
+    return text;
+    },
+
+// loops 
+// while
+    createWhileLoop: (num) => {
+        let i = 0;
+        while (i < 9) {
+            num = num +1; 
+            i++;
+        }
+    return num;
+    },
+
+// loops 
+// do while
+    createDoWhileLoop: (num) => {
+        let i = 0
+        do {num = num +1;
+        i++;
+        }
+        while (i < 9);
+        return num;
     }
+
+// loops 
+// forEach (with array and function)
+// come back to this one
+
+// Objects / Dictionaries
+// declare object
+// lookup key to retrieve value
+
+
 };
 
 
