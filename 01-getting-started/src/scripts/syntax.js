@@ -114,7 +114,7 @@ const functions = {
         }
         while (i < 9);
         return num;
-    }
+    },
 
 // loops 
 // forEach (with array and function)
@@ -123,8 +123,11 @@ const functions = {
 // Objects / Dictionaries
 // declare object
 // lookup key to retrieve value
-
-
+    checkObject: (object,input) => {
+        if (object[input] != undefined) {
+            return object[input];
+        }
+    }
 };
 
 

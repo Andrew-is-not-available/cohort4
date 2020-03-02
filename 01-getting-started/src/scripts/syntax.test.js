@@ -71,3 +71,6 @@ test('Initiate a While Loop and get the end result', () => {
 test('Initiate a Do While Loop and get the end result', () => {
     expect(functions.createDoWhileLoop(0)).toBe(9);
 });
+test('OBJECT:  Input name of object and return its property', () => {
+    expect(functions.checkObject({"num": 1},"num")).toEqual(1);
+});
