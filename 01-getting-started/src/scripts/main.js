@@ -39,3 +39,10 @@ divide.addEventListener('click', () => {
     console.log(num2);
     document.getElementById("output").value = functions.divide(num1,num2);
 })
+
+taxme.addEventListener('click', () => {
+    let taxableIncome = parseInt(document.getElementById('taxableIncome').value);
+    console.log(taxableIncome);
+    document.getElementById("taxPayable").value = functions.taxMePlease(taxableIncome);
+    console.log(document.getElementById("taxPayable").value);
+})

@@ -29,3 +29,9 @@ test('Does that divide function work?', () => {
     expect(functions.divide(1,2)).toBe(0.5);
     expect(functions.divide(101,202)).toBe(0.5);
 });
+
+test('DoI have to pay tax?', () => {
+    expect(functions.taxMePlease(250000)).toBe( 128964.02500000001);
+    expect(functions.taxMePlease(0)).toBe(0);
+    expect(functions.taxMePlease(-10000)).toBe("you lowdown cheat");
+});
