@@ -35,3 +35,8 @@ test('DoI have to pay tax?', () => {
     expect(functions.taxMePlease(0)).toBe(0);
     expect(functions.taxMePlease(-10000)).toBe("you lowdown cheat");
 });
+
+test('Does that array function work?', () => {
+    // expect(functions.workingWithArrays(1)).toBe(0);
+    expect(functions.workingWithArrays(0)).toBe(0);
+});

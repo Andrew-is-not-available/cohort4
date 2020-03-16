@@ -36,6 +36,15 @@ const functions = {
         if (taxableIncome > 214368) 
         return 48535*0.15+(97069-48535)*0.205+(150473-97069)*.26+
         (214368-150473)*0.29+(taxableIncome-214368)*0.33;
+    },
+
+    workingWithArrays: (arrayElement) => {
+        // return("that is not a number");
+        let workingArray = []
+        workingArray.push (arrayElement);
+        let workingArrayNew = workingArray.concat(arrayElement);
+        // return workingArray[number]
+        return workingArray
     }
 
 };

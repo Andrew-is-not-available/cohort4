@@ -40,9 +40,21 @@ divide.addEventListener('click', () => {
     document.getElementById("output").value = functions.divide(num1,num2);
 })
 
-taxme.addEventListener('click', () => {
+taxMe.addEventListener('click', () => {
     let taxableIncome = parseInt(document.getElementById('taxableIncome').value);
     console.log(taxableIncome);
     document.getElementById("taxPayable").value = functions.taxMePlease(taxableIncome);
     console.log(document.getElementById("taxPayable").value);
 })
+
+arrayPush.addEventListener('click', () =>{
+    let arrayElement = parseInt(document.getElementById("arrayElement").value);
+    console.log(arrayElement);
+    console.log(functions.workingWithArrays(arrayElement));
+
+})
+
+// arrayPush.addEventListener('click', () => {
+//     let arrayElement = parseInt(document.getElementById('arrayElement')).value;
+//     console.log(arrayElement);
+
