@@ -27,7 +27,7 @@ const functions = {
         workingArray.length = 0
         return "" + workingArray
     },
-
+ 
 
     stateNames : {
         'NY' : "New York",

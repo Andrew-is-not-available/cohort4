@@ -30,8 +30,8 @@ document.body.addEventListener("click", (e) => {
         let myStr3 = myStr2.replace(/,/g, '\n');
         console.log(myStr3);
         document.getElementById("objectOutput").value=myStr3;
-    }
-
+    } 
+ 
 
 })
 
