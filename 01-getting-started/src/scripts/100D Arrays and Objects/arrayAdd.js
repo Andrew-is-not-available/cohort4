@@ -26,7 +26,22 @@ const functions = {
     clearArray(workingArray) {
         workingArray.length = 0
         return "" + workingArray
-    }
+    },
+
+
+    stateNames : {
+        'NY' : "New York",
+        'ON' : "Ontario"
+    
+    },
+    lookupName(abbrev) {
+        return functions.stateNames[abbrev];
+    },
+
+    addStateName(abbrev, stateName) {
+        functions.stateNames[abbrev] = stateName;
+    } 
+
 
 };
 
