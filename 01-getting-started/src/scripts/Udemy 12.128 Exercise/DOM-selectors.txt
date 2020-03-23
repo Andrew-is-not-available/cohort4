@@ -1,0 +1,114 @@
+DOM Selectors
+--------------
+getElementsByTagName
+getElementsByClassName
+getElementById
+
+querySelector
+querySelectorAll
+
+getAttribute
+setAttribute
+
+##Changing Styles
+style.{property} //ok
+
+className //best
+classList //best
+
+classList.add
+classList.remove
+classList.toggle
+
+##Bonus
+innerHTML //DANGEROUS
+
+parentElement
+children
+
+##It is important to CACHE selectors in variables
+
+//The following are all js console commands from the video
+//*******************************************************
+
+window
+document
+document.getElementsByTagName("");
+document.getElementsByTagName("h1");
+document.getElementsByClassName("second");
+document.getElementById("first");
+document.getElementsByClassName("second") [0]
+document.querySelector("h1");
+document.querySelector("l1");
+document.querySelectorAll("l1");
+document.querySelector("l1, h1");
+
+//https.caniuse.com
+
+var = document.querySelector("li");
+document.querySelector("li").getAttribute("randon");
+document.querySelector("li").setAttribute("randon","1000");
+document.querySelector("li");
+
+document.querySelector("h1").style;
+document.querySelector("h1").style.background = "yellow";
+
+//ideally, we don't want to include sytles in the html,
+//alternatives to style.property
+//remove the style change from the html
+
+var h1 = document.querySelector("h1");
+
+h1.className = "coolTitle";
+
+//www.codepen.io search for cool css title by Raphael
+
+h1
+
+docment.querySelector("li").classList;
+
+//nothing, no classes
+
+//add class to html file
+//no has visible classes
+document.querySelector("li").classList.add("coolTitle");
+document.querySelector("li").classList.remove("coolTitle");
+document.querySelector("li").classList.add("done");
+document.querySelector("li").classList.toggle("done");
+//strikethrough on and off
+
+//innerHTML DANGEROUS
+
+document.querySelector("h1").innerHTML = "<strong>!!!!</strong>;
+
+document.querySelectorAll("li") [1];
+document.querySelectorAll("li") [1].parentElement;
+document.querySelectorAll("li") [1].parentElement.parentElement;
+document.querySelectorAll("li") [1].parentElement.children;
+
+//cache your selectors as they eat up RAM, ie 
+
+var h1 = document.querySelectorAll("h1");
+
+//*******************************************************
+//Video 12.129 DOM Events
+
+document.getElementsByTagName("button");
+
+// https://developer.mozilla.org/en-US/docs/Web/Events
+
+//most common ones are mouse and keyboard Events
+
+document.getElementsByTagName("button") [0];
+
+//[0] because event listerner is not a function, //
+//getElementsByTagName returns an array, 
+//and we're trying to use a method on an array.
+//use [0] to use the method on 
+//the first element.  Very common mistake
+
+//we are giving the shopping list the ability to add
+//items to the bottom of the list
+
+//https://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
+//to add an event listener for any key, this tells you the right key code
