@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<!--This is a basic HTML file for DOM manipulation-->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            border: 2px;
+            
+        }
+        
+        div {
+            width: 90%;
+            height: 90%;
+            border: solid 2px;
+            padding: 20px;
+            background-color: whitesmoke;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+        input {
+            text-align: center;
+        }
+        
+        #codeInput {
+            width: 60%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="DomStuff">
+
+        <h1>Basic DOM</h1>
+        <p>This is a list of stuff</p>
+        <input id="userinput" type="text" placeholder="enter items">
+        <button id="add">Add</button>
+        <button id="show">Show</button>
+        <ol id="myList">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ol>
+        
+    </div>
+    <script src="domscript.js" type="module"> </script>
+</body>
+
+</html>

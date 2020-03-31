@@ -22,6 +22,8 @@ document.body.addEventListener("click", (e) => {
         idCodeInput.value='';
         idNameInput.value='';
     } else if (cmd === 'Lookup') {
+        const state = idStateInput.value;
+        console.log(state);
         document.getElementById("idNameOutput").value=arrayAdd.lookupName(idStateInput.value);
         // idMessage.textContent = arrayAdd.lookupName(idStateInput.value);
     } else if (cmd === 'Display') {
