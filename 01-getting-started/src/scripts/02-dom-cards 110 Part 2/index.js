@@ -30,7 +30,6 @@ function myEventListener(e) {
     else if (e.target.textContent === "Delete") {
 
         let target = e.target.parentElement
-        console.log(target);
 
         target.parentNode.removeChild(target);
     }
