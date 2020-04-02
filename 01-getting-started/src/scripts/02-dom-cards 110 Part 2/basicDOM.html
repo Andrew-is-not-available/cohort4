@@ -13,6 +13,12 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+
+/* modified from https://www.w3schools.com/howto/howto_css_column_cards.asp */ 
+
+/* "Responsive Column Cards
+Resize the browser window to see the effect." */
+
         * {
             box-sizing: border-box;
         }
@@ -68,7 +74,7 @@
     <div class="row">
         <div id = "idAddColumn" class="column">
             <div class="card">
-                <h2 >Card 1</h2>
+                <h2 id = "idCardLabel">Card 1</h2>
                 <button id="idAddBefore" type = "button" >Add Before</button>
                 <button id="idAddBAfter" type = "button" >Add After</button>
                 <button id="idDelete" type = "button" >Delete</button>

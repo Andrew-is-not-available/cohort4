@@ -1,4 +1,13 @@
 const cardFuncs = {
+    // nb note nodeInsertBefore is available, 'nodeInsertAfter' is more
+    // difficult according to Sean, 
+    // "Note: There is no insertAfter() method. (so we're going to make a function
+    // called insertAfter.)  It can be emulated by 
+    // combining the insertBefore method with Node.nextSibling."
+    // search "combine insertBefore method with Node.nextSibling"
+    // https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore
+    // solution? https://teamtreehouse.com/community/another-solution-to-this-problem
+    
 
     createCard(parentElement,counter) {
         const div = document.createElement("div");
@@ -9,6 +18,8 @@ const cardFuncs = {
         div.className = "card";
         h2.append(txt);
         div.append(h2);
+        
+        // Thanks to Sean for this line break code.  Creates the new card.
         
         const breakLine1 = document.createElement("br");
         div.appendChild(breakLine1);
@@ -24,8 +35,6 @@ const cardFuncs = {
         const addButton3 = document.createElement("button");
         addButton3.append(document.createTextNode("Delete"));
         div.append(addButton3);
-
-        console.log(parentElement, txt);
 
         return div;
     }, 
