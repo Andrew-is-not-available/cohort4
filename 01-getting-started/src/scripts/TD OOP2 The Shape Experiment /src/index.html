@@ -6,19 +6,19 @@
     <title>Shapes</title>
     <style>
          .clBox {
-            box-shadow: 0 8 px 16 px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
             border: solid;
-            padding: 10 px;
-         }
-         .clShape {
-             fill:grey;
-             stroke-width: 3;
-             stroke:blue;
-
-         }
-         .clInput {
-             width: 50px;
-         }
+            padding: 10px;
+        }
+        .clShape {
+            fill: #8d9995;
+            stroke-width: 3;
+            stroke: #2e309b;
+        }
+        .clInput {
+            width: 50px;
+        }
+        
     </style>
 </head>
 <body>
@@ -27,8 +27,8 @@
     <button todo="newRectangle">Rectangle</button>
     <button todo="newSquare">Square</button>
     <button todo="newCircle">Circle</button>
-    x <input class="clInput" id="idx" type="button" placeholder="1"> 
-    y <input class="clInput" id="idy" type="button" placeholder="1"> 
+    x <input class="clInput" id="idx" type="number" value="1" />
+    y <input class="clInput" id="idy" type="number" value="1" />
     <button todo="show">Show</button>
 
     <div id="idDrawings" class="clBox"></div>
