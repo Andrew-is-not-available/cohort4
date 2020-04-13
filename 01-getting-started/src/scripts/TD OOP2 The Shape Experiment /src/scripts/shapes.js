@@ -5,8 +5,8 @@ function hello() {
 class Shape {
     constructor(key, x, y) {
         this.key = key;
-        this.x = x;
-        this.y = y;
+        this.x = Number(x);
+        this.y = Number(y);
     }
     move(x, y) {
         this.x += x;

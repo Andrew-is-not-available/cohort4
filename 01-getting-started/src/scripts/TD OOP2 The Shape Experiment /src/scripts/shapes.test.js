@@ -61,7 +61,7 @@ test('test Drawing move', () => {
     const panel =  new shapes.Drawing(401,402);
     const svg = panel.draw();
     
-    const key = panel.createRectangle(101,102);
+    const key = panel.createRectangle("101","102");
     panel.move(key, 3, 5);
     const shape = panel.getShape(key);
     expect(shape.x).toBe(104);
