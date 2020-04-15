@@ -12,8 +12,8 @@ document.body.addEventListener("click", (e) => {
     } else if (cmd === 'Withdrawl') {
         acct1.withdraw(Number(idWithdraw.value));
     }else if (cmd === 'Lookup') {
-        console.log(idOpenBal.value)
-        document.getElementById("idNameOutput").value=idOpenBal.value;
+        console.log(acct1.getBalance());
+        document.getElementById("idDisplayOutput").innerHTML=acct1.getBalance();
     // idMessage.textContent = arrayAdd.lookupName(idStateInput.value);
     }
 })

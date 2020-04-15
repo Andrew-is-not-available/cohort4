@@ -23,3 +23,9 @@ test('Does the withdrawl work?', () => {
     acct1.withdraw(10);
     expect(acct1.getBalance()).toBe(10);
 });
+
+test('Does the account summary work?', () => {
+    const acct1 = new Account('John Doe',25);
+    console.log(acct1.getBalance());
+    expect(acct1.getBalance()).toBe(25);
+});
