@@ -20,6 +20,7 @@ class Shape {
 
     getElement(txt) {
         const shape = document.createElementNS("http://www.w3.org/2000/svg", txt);
+        shape.setAttribute("class","clShape");
         this.shape = shape;
         return shape;
     } 
@@ -46,6 +47,32 @@ class Rectangle extends Shape {
     }
 }
 
+class Square extends Rectangle {
+    updateElement() {
+        super.updateElement();
+        if(this.shape) {
+            this.shape.setAttribute("height", "100");
+        }
+    }
+}
+
+class Circle extends Shape {
+    getElement() {
+        if(this.shape) return this.shape;
+        const circle = super.getElement('circle');
+        this.updateElement();
+        return circle;
+    }
+    updateElement() {
+        if(this.shape) {
+            this.shape.setAttribute("cx", this.x);
+            this.shape.setAttribute("cy", this.y);
+            this.shape.setAttribute("r", "20");
+            this.shape.setAttribute("key", this.key);
+        }
+    }
+}
+
 class Drawing {
     constructor(xxxwidth, height) {
         this.width = xxxwidth;
@@ -67,6 +94,31 @@ class Drawing {
 
         return key;
     }
+
+    createCircle(x, y) {
+        const key = this.nextKey();
+        const circle = new Circle(key, x, y);
+        this.shapes[key] = circle;
+        if (this.svg) {
+            const el = circle.getElement();
+            this.svg.append(el);
+        }
+
+        return key;
+    }
+
+    createSquare(x, y) {
+        const key = this.nextKey();
+        const square = new Square(key, x, y);
+        this.shapes[key] = square;
+        if (this.svg) {
+            const el = square.getElement();
+            this.svg.append(el);
+        }
+
+        return key;
+    }
+
     getShape(theKey) {
         return this.shapes[theKey];
     }
@@ -89,6 +141,24 @@ class Drawing {
         const shape = this.getShape(key);
         shape.move(x, y);
     }
+    
+    async animate(key, x, y, cycle = 100, duration = 10) {
+        let count = 0;
+        const shape = this.getShape(key);
+
+        let timerId = setInterval(() => {
+            shape.move(x, y);
+            count++;
+        }, cycle);
+
+        await new Promise((resolve, reject) =>
+            setTimeout(() => {
+                clearInterval(timerId);
+                resolve("ok");
+            }, duration * 1000));
+
+        return count;
+    }
 }
-export default { hello, Shape, Rectangle, Drawing };
+export default { hello, Shape, Rectangle, Square, Circle, Drawing };
 

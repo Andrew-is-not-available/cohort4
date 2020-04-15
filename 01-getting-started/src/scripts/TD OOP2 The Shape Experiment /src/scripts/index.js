@@ -2,10 +2,7 @@ import shapes from './shapes.js'
 
 const panel = new shapes.Drawing(401, 402);
 const svg = panel.draw()
-// console.log(svg);
 idDrawings.append(svg);
-
- 
 
 document.body.addEventListener("click", e => {
     const el = e.target;
@@ -13,22 +10,20 @@ document.body.addEventListener("click", e => {
     const key = el.getAttribute("key");
 
     if (key) {
-        console.log(key);
-        console.log(panel.getShape(key));
-        panel.move(key,2,5);
-        console.log(panel.getShape(key));
+        // panel.move(key,2,5);
+        panel.animate(key, 2, 2, 10, 10);
     }
 
     if (todo === "newRectangle") {
-        console.log(idx.value, idy.value);
-        const rect = panel.createRectangle(idx.value, idy.value);
+        panel.createRectangle(idx.value,idy.value);
     }
 
-    if (todo === "show") {
-
+    if (todo === "newSquare") {
+        panel.createSquare(idx.value, idy.value);
     }
 
-    // consol e.log(el);
-    // console.log(el.getAttribute("key"));
+    if (todo === "newCircle") {
+        panel.createCircle(idx.value, idy.value);
+    }
 
 })
