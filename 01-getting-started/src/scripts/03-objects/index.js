@@ -1,8 +1,6 @@
-import Account from './account.js'
+import {Account, AccountControl} from './account.js'
 
 let acct1 = new Account();
-
-//"objects need to be instantiated outside of the listeners".....SteveB
 
 idCreateAcct.addEventListener("click", function() {
     acct1 = new Account(idNew.value,Number(idOpenBal.value));

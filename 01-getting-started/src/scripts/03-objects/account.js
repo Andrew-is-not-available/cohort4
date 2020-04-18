@@ -20,13 +20,50 @@ class Account {
         this.balance -= amount
         console.log(`Withdraw: ${this.name}'s new balance is ${this.balance} $CAN`)
     }
+};
+
+// 130 C
+
+class AccountControl {
+    constructor() {
+        this.acctArr = [];
+    }
+    
+    addAccount(name,balance) {
+        let newRecord = new Account(name,balance);
+        this.acctArr.push(newRecord);
+        return this.acctArr;
+    }
+
+    removeAccount(name) {
+        let index = this.acctArr.findIndex(x => x.name===name);
+        this.acctArr.splice(index,1);
+    }
+
+    totalAccount() {
+        let total = 0;
+        let i=1;
+        for(i=0; i < this.acctArr.length; i++) {
+            total+=Number(this.acctArr[i].balance);
+        }
+        return total;
+    }
+
+    maximumAccount() {
+        let string = "";
+        string += `${Object.values(this.acctArr.reduce((a, b) => b.balance > a.balance ? b: a))}`;
+        let separatedArray = string.split(',');
+        return Number(separatedArray[1]);
+    }
+
+    minimumAccount() {
+        let string = "";
+        string += `${Object.values(this.acctArr.reduce((a, b) => b.balance < a.balance ? b: a))}`;
+        let separatedArray = string.split(',');
+        return Number(separatedArray[1]);
+        
+    }
+
 }
 
-// const acct1 = new Account('John Doe',25);
-
-
-// console.log(acct1.getSummary());
-// acct1.deposit(10);
-// acct1.withdraw(30);
-
-export default Account;
+export {Account, AccountControl};
