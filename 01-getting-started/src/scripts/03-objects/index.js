@@ -1,13 +1,14 @@
 import {Account, AccountControl} from './account.js'
 
-let acct1 = new Account();
+let acct1 = new AccountControl();
+// let acct1 = new Account();
+let i = 0;
 
-idCreateAcct.addEventListener("click", function() {
-    acct1 = new Account(idNew.value,Number(idOpenBal.value));
-    console.log(acct1.getSummary());
-    console.log(acct1.name,acct1.balance)
+idCreateAcct.addEventListener("click", (() => {
+    acct1.addAccount(idNew.value,idOpenBal.value);
+    console.log(acct1.acctArr);
     return acct1;
-});
+}));
 
 
 

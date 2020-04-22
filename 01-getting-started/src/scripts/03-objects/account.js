@@ -35,8 +35,26 @@ class AccountControl {
         return this.acctArr;
     }
 
-    removeAccount(name) {
+    balanceAccount(name) {
         let index = this.acctArr.findIndex(x => x.name===name);
+        return this.acctArr[index].balance;
+    }
+
+    depositAccount(name,amount) {
+        let index = this.acctArr.findIndex(x => x.name===name);
+        this.acctArr[index].deposit(amount);
+        return this.acctArr[index].amount;
+    }
+
+    withdrawAccount(name,amount) {
+        let index = this.acctArr.findIndex(x => x.name===name);
+        this.acctArr[index].withdraw(amount);
+        return this.acctArr[index].amount;
+    }
+
+    deleteAccount(name) {
+        let index = this.acctArr.findIndex(x => x.name===name);
+        //at position index, remove one item
         this.acctArr.splice(index,1);
     }
 
@@ -51,8 +69,16 @@ class AccountControl {
 
     maximumAccount() {
         let string = "";
+        // Object.values
+        // returns an array of the object's own enumerable property values, in the same order as
+        // a for...in loop.
+        // console.log(Object.values(this.acctArr));      
+        // array.reduce subtracts the numbers in the array, starting from the left
+        // if b > a reorder the pair and return the object as a string in highest to lowest numerical order
         string += `${Object.values(this.acctArr.reduce((a, b) => b.balance > a.balance ? b: a))}`;
+        // convert the string to an array using the comma delimiter in the string.
         let separatedArray = string.split(',');
+        // return the numerical value of position[1] of the array.
         return Number(separatedArray[1]);
     }
 
