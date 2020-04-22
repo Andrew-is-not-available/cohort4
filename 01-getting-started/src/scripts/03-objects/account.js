@@ -10,6 +10,7 @@ class Account {
 
     getBalance() {
         return this.balance;
+        
     }
 
     deposit(amount) {
