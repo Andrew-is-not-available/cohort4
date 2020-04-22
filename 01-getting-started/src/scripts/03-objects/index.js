@@ -36,4 +36,5 @@ document.body.addEventListener("click", (e) => {
         console.log(acct1.balanceAccount(idName2.value));
 
 
-    })
+    }
+});
