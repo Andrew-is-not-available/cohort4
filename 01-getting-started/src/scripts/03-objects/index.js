@@ -28,10 +28,16 @@ document.body.addEventListener("click", (e) => {
         acct1.balanceAccount(idName2.value);
         document.getElementById("idDisplayOutput").value = acct1.balanceAccount(idName2.value);
         console.log(acct1.balanceAccount(idName2.value));
-    } else if (cmd === 'Listing') {
+
+    } else if (cmd === 'Display') {
         console.log(acct1.acctArr);
+        let myStr = JSON.stringify(acct1.acctArr)
+        let myStr2 = myStr.replace(/["{}]/g, '');
+        let myStr3 = myStr2.replace(/,/g, '\n');
+        console.log(myStr3);
+        document.getElementById("objectOutput").value=myStr3;
         // next step.  nice display needed using the array elements.
-        
+
     } else if (cmd === 'Total') {
         outputField.innerText = `Your current balance is $${acct1.totalAccount()}`;
     } else if (cmd === 'Highest') {
