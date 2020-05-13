@@ -4,6 +4,10 @@ const functions = {
     
     url: 'https://jsonplaceholder.typicode.com/users',
 
+    getHello() {
+        return "hello from the functions"
+    },
+    
     getFirstName(data) {
         let firstName = data[0].name;
         return firstName;

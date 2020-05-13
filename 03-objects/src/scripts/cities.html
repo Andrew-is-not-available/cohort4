@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        /* modified from https://www.w3schools.com/howto/howto_css_column_cards.asp */         
+                * {
+                    box-sizing: border-box;
+                }
+        
+                body {
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+        
+                /* Float two columns side by side */
+                .column {
+                    float: left;
+                    width: 40%;
+                    padding: 0 10px;
+                    overflow: scroll;
+                }
+        
+                /* Remove extra left and right margins, due to padding */
+                .row {
+                    margin: 0 -5px;
+                }
+        
+                /* Clear floats after the columns */
+                .row:after {
+                    content: "";
+                    display: table;
+                    clear: both;
+                }
+        
+                /* Responsive columns */
+                @media screen and (max-width: 600px) {
+                    .column {
+                        width: 100%;
+                        display: block;
+                        margin-bottom: 20px;
+                    }
+                }
+        
+                /* Style the counter cards */
+                .card {
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                    padding: 16px;
+                    text-align: center;
+                    background-color: #f1f1f1;
+                }
+            </style>
+
+    <title>CityScape</title>
+</head>
+<body>
+    <div>
+        <h1><i ></i><span> CityScape</span></h1>
+        <hr>
+        
+        <div>
+            <button id="totalPopulation" >Total population</button>
+            <button id="howBig" >How big?</button>
+            <button id="whichSphere" >Which Hemisphere?</button>
+            <button id="northernMost" >Most Northern?</button>
+            <button id="southernMost" >Most Southern?</button>
+        </div>
+        <div>
+            <button id="idButtonClear" >Clear database</button>
+            <button id="idButtonShow" >Show all cities</button>
+        </div>
+        <hr>
+    </div>
+    
+    <div class="row">
+        <div>
+            <div class="column">
+                <!-- Left Hand Collumn -->
+                
+                <div>
+                    
+                    <form id="cityForm">
+                        <div>
+                            <label for="city"><b>City</b></label>
+                            <input type="text" id="city" >
+                        </div>
+                        <div>
+                            <label for="population" ><b>Population</b></label>
+                            <input type="number" id="population" >
+                        </div>
+                        <div>
+                            <label for="latitude" ><b>Latitude</b></label>
+                            <input type="number" id="latitude" >
+                        </div>
+                        <div>
+                            <label for="longitude" ><b>Longitude</b></label>
+                            <input type="number" id="longitude" >
+                        </div>
+                        <input type="submit" value="Create City">
+                    </form>
+                </div>
+
+                <div>
+                    <input type="number" id="change" placeholder="Enter A Number" style="width: 250px">
+                    <button id="idChangePop">Plus/Minus</button>
+                </div>
+        
+            </div>
+
+
+            <div class="column">
+                <!-- Right Hand Collumn -->
+
+                <div>
+                        <div>
+                            <table>
+                                <thead> 
+                                    <tr>
+                                        <th>City</th>
+                                        <th>Population</th>
+                                        <th>Latitude</th>
+                                        <th>Longitude</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cityList"></tbody>
+                            </table>
+                        </div> 
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -63,8 +63,6 @@ class Community {
         this.counter = 4;
     }
 
-    // Setting up a dynamic key for each City
-
     nextKey() {
         return `k${this.counter++}`;
     }
@@ -138,7 +136,8 @@ class Community {
     }
 
     deleteCity(key) {
-console.log("hello from delete city");
+        
+        console.log("hello from delete city");
 
         for (let i = 0; i < this.list.length; i++) {
             if (key === this.list[i].key) {
