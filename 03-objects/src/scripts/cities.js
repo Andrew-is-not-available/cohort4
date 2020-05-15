@@ -1,4 +1,14 @@
 import functions from './fetch.js';
+const url = 'http://localhost:5000/';
+let data;
+let selectedCity = ""; 
+
+async function loadAll() {
+    data = await postData(url + 'all');
+    textOutput.textContent = `Currently ${data.length} entries on server.`;
+return;
+};
+loadAll();
 
 class City {
     constructor(key, name, latitude, longtitude, population) {
@@ -10,12 +20,21 @@ class City {
     }
 
     show() {
-        try {
-            return `${this.name} with lat of ${this.latitude}, long of ${this.longtitude} has pop ${this.population}`
-        } catch (error) {
-            throw (error);
-        }
+        const cityList = document.querySelector("#cityList");
+        const row = document.createElement("tr"); 
+        row.style.height = "15px";
+        row.innerHTML = `
+            <td>${city.city}</td>
+            <td>${city.population}</td>
+            <td>${city.latitude}</td>
+            <td>${city.longitude}</td>
+            <td><a href="#">X</a></td>
+            `
+        cityList.appendChild(row); 
+        return;
     }
+
+
 
     movedIn(num) {
         try {
@@ -66,7 +85,17 @@ class Community {
     nextKey() {
         return `k${this.counter++}`;
     }
+// does this belong in commmunity or cities?
 
+    showAll() {
+        cityList.innerHTML = "";
+        for (let i=0; i<data.length; i++) {
+            City.show(data[i]);
+        };
+        selectedCity = ""; 
+        return;
+    };
+    
     async createCity(name, latitude, longtitude, population) {
         try {
             let key = this.counter++
@@ -146,6 +175,30 @@ class Community {
         }
 
     }
+}
+
+async function postData(url = '', data = {}) {
+    // Default options are marked with *
+        const response = await fetch(url, {
+            method: 'POST',     // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors',       // no-cors, *cors, same-origin
+            cache: 'no-cache',  // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: 'follow',         // manual, *follow, error
+            referrer: 'no-referrer',    // no-referrer, *client
+            body: JSON.stringify(data)  // body data type must match "Content-Type" header
+        });
+
+        const json = await response.json();    // parses JSON response into native JavaScript objects
+        json.status = response.status;
+        json.statusText = response.statusText;
+        // console.log(json, typeof(json));
+        if (response.status > 200) {return false};
+        return json;
 }
 
 export { City, Community };
