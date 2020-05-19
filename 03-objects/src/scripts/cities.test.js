@@ -14,7 +14,7 @@ test('does the City class work?', () => {
     expect(city2.key).toBe('k2');
 
     // Does show work?
-    expect(city1.show()).toBe('A with lat of 1, long of -1 has pop 10')
+    expect(city1.show()).toBe('A has a latitude of 1 and a longtitude of -1 and a population of 10')
 
     // Does movedIn work?
     expect(city1.movedIn(22)).toBe(32);

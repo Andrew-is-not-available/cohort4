@@ -1,108 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        /* modified from https://www.w3schools.com/howto/howto_css_column_cards.asp */
+        * {
+            box-sizing: border-box;
+        }
 
-        /* modified from https://www.w3schools.com/howto/howto_css_column_cards.asp */         
-                * {
-                    box-sizing: border-box;
-                }
-        
-                body {
-                    font-family: Arial, Helvetica, sans-serif;
-                }
-        
-                /* Float two columns side by side */
-                .column {
-                    float: left;
-                    /* width: 40%; */
-                    padding: 0 10px;
-                    overflow: scroll;
-                    border: solid black 1.5px;
-                }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Float two columns side by side */
+        .column {
+            float: left;
+            /* width: 40%; */
+            padding: 0 10px;
+            overflow: scroll;
+            border: solid black 1.5px;
+        }
+
         /* column left and right for the future */
-                /* Remove extra left and right margins, due to padding */
-                .row {
-                    margin: 0 -5px;
-                    display: flex;
-                }
-                
-        
-                /* Clear floats after the columns */
-                .row:after {
-                    content: "";
-                    display: table;
-                    clear: both;
-                }
-        
-                /* Responsive columns */
-                @media screen and (max-width: 600px) {
-                    .column {
-                        width: 100%;
-                        display: block;
-                        margin-bottom: 20px;
-                    }
-                }
-        
-                /* Style the counter cards */
-                .card {
-                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-                    padding: 16px;
-                    text-align: center;
-                    background-color: #f1f1f1;
-                }
-            </style>
+        /* Remove extra left and right margins, due to padding */
+        .row {
+            margin: 0 -5px;
+            display: flex;
+        }
+
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive columns */
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Style the counter cards */
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 16px;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+    </style>
 
     <title>CityScape</title>
 </head>
+
 <body>
     <div>
-        <h1><i ></i><span> CityScape</span></h1>
+        <h1><i></i><span> CityScape</span></h1>
         <hr>
-        
+
         <div>
-            <button id="totalPopulation" >Total population</button>
-            <button id="howBig" >How big?</button>
-            <button id="whichSphere" >Which Hemisphere?</button>
-            <button id="northernMost" >Most Northern?</button>
-            <button id="southernMost" >Most Southern?</button>
+            <button id="totalPopulation">Total population</button>
+            <button id="howBig">How big?</button>
+            <button id="whichSphere">Which Hemisphere?</button>
+            <button id="northernMost">Most Northern?</button>
+            <button id="southernMost">Most Southern?</button>
         </div>
         <div>
-            <button id="idButtonShow" >Show all cities</button>
+            <button id="idButtonShow">Show all cities</button>
         </div>
         <hr>
     </div>
     <!-- Text output area -->
-    <div class="container border border-grey rounded p-2 bg-light text-primary"
-        style="width: 500px text-center; height: 40px">
-        <p id="textOutput" style="font-weight: bold"></p>
+    <div>
+        <p id="idMessage"></p>
     </div>
     <hr>
     <div class="row">
         <div>
             <div class="column" id="idLeft">
-            <!-- Left Hand Collumn -->
-                
+                <!-- Left Hand Collumn -->
+
                 <div>
-                    
+
                     <form id="cityForm">
                         <div>
                             <label for="city"><b>City</b></label>
-                            <input type="text" id="idCity" >
+                            <input type="text" id="idCity">
                         </div>
                         <div>
-                            <label for="population" ><b>Population</b></label>
-                            <input type="number" id="idPop" >
+                            <label for="population"><b>Population</b></label>
+                            <input type="number" id="idPop">
                         </div>
                         <div>
-                            <label for="latitude" ><b>Latitude</b></label>
-                            <input type="number" id="idLat" >
+                            <label for="latitude"><b>Latitude</b></label>
+                            <input type="number" id="idLat">
                         </div>
                         <div>
-                            <label for="longitude" ><b>Longitude</b></label>
-                            <input type="number" id="idLong" >
+                            <label for="longitude"><b>Longitude</b></label>
+                            <input type="number" id="idLong">
                         </div>
                         <input type="submit" value="Create City">
                     </form>
@@ -112,33 +113,34 @@
                     <input type="number" id="change" placeholder="Enter A Number" style="width: 250px">
                     <button id="idChangePop">Plus/Minus</button>
                 </div>
-        
+
             </div>
 
 
             <div id="idRight" class="column">
-            <!-- Right Hand Collumn -->
+                <!-- Right Hand Collumn -->
 
                 <div>
-                        <div>
-                            <table>
-                                <thead> 
-                                    <tr>
-                                        <th>City</th>
-                                        <th>Population</th>
-                                        <th>Latitude</th>
-                                        <th>Longitude</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="cityList"></tbody>
-                            </table>
-                        </div> 
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>City</th>
+                                    <th>Population</th>
+                                    <th>Latitude</th>
+                                    <th>Longitude</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="cityList"></tbody>
+                        </table>
                     </div>
+                </div>
 
             </div>
         </div>
     </div>
     <script src="./cityindex.js" type="module"> </script>
 </body>
+
 </html>

@@ -5,9 +5,10 @@ let selectedCity = "";
 
 async function loadAll() {
     data = await postData(url + 'all');
-    textOutput.textContent = `Currently ${data.length} entries on server.`;
+    idMessage.textContent = `Currently ${data.length} entries on server.`;
 return;
 };
+
 loadAll();
 
 class City {
@@ -20,20 +21,36 @@ class City {
     }
 
     show() {
-        const cityList = document.querySelector("#cityList");
-        const row = document.createElement("tr"); 
-        row.style.height = "15px";
-        row.innerHTML = `
-            <td>${city.city}</td>
-            <td>${city.population}</td>
-            <td>${city.latitude}</td>
-            <td>${city.longitude}</td>
-            <td><a href="#">X</a></td>
-            `
-        cityList.appendChild(row); 
-        return;
+
+        try {
+            return `${this.name} has a latitude of ${this.latitude} and a longtitude of ${this.longtitude} and a population of ${this.population}`
+        } catch (error) {
+            throw (error);
+        }
+    
+        // const cityList = document.querySelector("#cityList");
+        // const row = document.createElement("tr"); 
+        // row.style.height = "15px";
+        // row.innerHTML = `
+        //     <td>${city.city}</td>
+        //     <td>${city.population}</td>
+        //     <td>${city.latitude}</td>
+        //     <td>${city.longitude}</td>
+        //     <td><a href="#">X</a></td>
+        //     `
+        // cityList.appendChild(row); 
+        // return;
     }
 
+    showAll() {
+        cityList.innerHTML = "";
+        for (let i=0; i<data.length; i++) {
+            City.show(data[i]);
+        };
+        selectedCity = ""; 
+        return;
+    };
+    
 
 
     movedIn(num) {
@@ -55,6 +72,7 @@ class City {
     }
 
     howBig() {
+        
         try {
             switch (true) {
                 case (this.population > 100000):
@@ -87,15 +105,6 @@ class Community {
     }
 // does this belong in commmunity or cities?
 
-    showAll() {
-        cityList.innerHTML = "";
-        for (let i=0; i<data.length; i++) {
-            City.show(data[i]);
-        };
-        selectedCity = ""; 
-        return;
-    };
-    
     async createCity(name, latitude, longtitude, population) {
         try {
             let key = this.counter++
@@ -140,9 +149,7 @@ class Community {
             }
         } if (mostNorthern > 0) {
             return `${mostNorthernName} is the most Northern city with latitude of ${mostNorthern}`;
-        } else {
-            return 'Seems like all the cities you added are in Southern Hemisphere'
-        }
+        } 
     }
 
     getMostSouthern() {
@@ -156,17 +163,26 @@ class Community {
     }
 
     getPop() {
+        // let totalPopulation = 0;
+        // for (let i=0; i<data.length; i++) {
+        //     totalPopulation += data[i].population; 
+        // }
+        // idMessage.textContent = `The total population of all cities is ${totalPopulation}`;
+
+
         let total = 0;
         this.list.forEach(value => {
             total += value.population;
 
         })
+        idMessage.textContent = `The total population of all cities is ${total}`;
         return total;
     }
 
     deleteCity(key) {
         
         console.log("hello from delete city");
+
 
         for (let i = 0; i < this.list.length; i++) {
             if (key === this.list[i].key) {
@@ -177,28 +193,28 @@ class Community {
     }
 }
 
-async function postData(url = '', data = {}) {
-    // Default options are marked with *
-        const response = await fetch(url, {
-            method: 'POST',     // *GET, POST, PUT, DELETE, etc.
-            mode: 'cors',       // no-cors, *cors, same-origin
-            cache: 'no-cache',  // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: 'same-origin', // include, *same-origin, omit
-            headers: {
-                'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            redirect: 'follow',         // manual, *follow, error
-            referrer: 'no-referrer',    // no-referrer, *client
-            body: JSON.stringify(data)  // body data type must match "Content-Type" header
-        });
+// async function postData(url = '', data = {}) {
+//     // Default options are marked with *
+//         const response = await fetch(url, {
+//             method: 'POST',     // *GET, POST, PUT, DELETE, etc.
+//             mode: 'cors',       // no-cors, *cors, same-origin
+//             cache: 'no-cache',  // *default, no-cache, reload, force-cache, only-if-cached
+//             credentials: 'same-origin', // include, *same-origin, omit
+//             headers: {
+//                 'Content-Type': 'application/json'
+//                 // 'Content-Type': 'application/x-www-form-urlencoded',
+//             },
+//             redirect: 'follow',         // manual, *follow, error
+//             referrer: 'no-referrer',    // no-referrer, *client
+//             body: JSON.stringify(data)  // body data type must match "Content-Type" header
+//         });
 
-        const json = await response.json();    // parses JSON response into native JavaScript objects
-        json.status = response.status;
-        json.statusText = response.statusText;
-        // console.log(json, typeof(json));
-        if (response.status > 200) {return false};
-        return json;
-}
+//         const json = await response.json();    // parses JSON response into native JavaScript objects
+//         json.status = response.status;
+//         json.statusText = response.statusText;
+//         // console.log(json, typeof(json));
+//         if (response.status > 200) {return false};
+//         return json;
+// }
 
 export { City, Community };
