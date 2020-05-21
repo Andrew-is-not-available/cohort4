@@ -29,12 +29,12 @@ northernMost.addEventListener("click", newCom.getMostNorthern);
 
 southernMost.addEventListener("click", newCom.getMostSouthern);
 
-idButtonShow.addEventListener("click", newCom.showAll);
+// idButtonShow.addEventListener("click", newCom.showAll);
 
 cityForm.addEventListener("submit", async (e) => {
     event.preventDefault();
     // let val = Value();
-    let newCity = await newCom.createCity(idCity.value, Number(idPop.value), Number(idLat.value), Number(idLong.value));
+    let newCity = await newCom.createCity(idCity.value, Number(idLat.value), Number(idLong.value), Number(idPop.value));
     console.log(await newCity);
     let createCity = cityList(newCity);
     

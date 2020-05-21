@@ -14,18 +14,18 @@ async function loadAll() {
 loadAll();
 
 class City {
-    constructor(key, name, latitude, longtitude, population) {
+    constructor(key, name, latitude, longitude, population) {
         this.key = key;
         this.name = name;
         this.latitude = latitude;
-        this.longtitude = longtitude;
+        this.longitude = longitude;
         this.population = population;
     }
 
     show() {
 
         try {
-            return `${this.name} has a latitude of ${this.latitude} and a longtitude of ${this.longtitude} and a population of ${this.population}`
+            return `${this.name} has a latitude of ${this.latitude} and a longitude of ${this.longitude} and a population of ${this.population}`
         } catch (error) {
             throw (error);
         }
@@ -74,18 +74,20 @@ class City {
     }
 
     howBig() {
+        if (this.population > 100000) { return "city" }
+        else if (this.population > 20000) { return"large town" }
+        else if (this.population > 1000) { return "town" }
+        else if (this.population > 100) { return "village" }
+        else { return "hamlet" }
+        
 
-        for (let i = 0; i < data.length; i++) {
-            if (data[i].city === selectedCity) {
+        // for (let i = 0; i < data.length; i++) {
+        //     if (data[i].city === selectedCity) {
 
-                if (data[i].population > 100000) { placeType = "city" }
-                else if (data[i].population > 20000) { placeType = "large town" }
-                else if (data[i].population > 1000) { placeType = "town" }
-                else if (data[i].population > 100) { placeType = "village" }
-                else { placeType = "hamlet" }
-            };
-        };
-        idMessage.textContent = `This place is a ${placeType}.`;
+                
+        //     };
+        // };
+        // idMessage.textContent = `This place is a ${placeType}.`;
         // try {
         //     switch (true) {
         //         case (this.population > 100000):
@@ -118,10 +120,12 @@ class Community {
     }
     // does this belong in commmunity or cities?
 
-    async createCity(name, latitude, longtitude, population) {
+    async createCity(name, latitude, longitude, population) {
         try {
             let key = this.counter++
-            let city = new City(key, name, latitude, longtitude, population);
+            let city = new City(key, name, latitude, longitude, population);
+            // console.log(city);
+            
             this.list.push(city);
 
             let data = await functions.postData(this.url + 'add', city);
@@ -207,10 +211,19 @@ class Community {
 }
 
 export async function loadScript() {
-    // console.log('Hey, we loaded');
     let data = await postData("http://localhost:5000/all")
-        for (let i = 0; i < data.length; i++) {
-            createList();
+    await postData("http://localhost:5000/clear")
+    //pull the data, clear the server
+    let newCom = new Community;
+
+    for (let i = 0; i < data.length; i++) {
+        //name, latitude, longitude, population
+        newCom.createCity(data[i].name,data[i].latitude,data[i].longitude,data[i].population);
+    }
+        // console.log(newCom.list);
+        
+        for (let i = 0; i < newCom.list.length; i++) {
+            createList(newCom.list[i]);
         }
     
 }

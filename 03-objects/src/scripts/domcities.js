@@ -7,9 +7,10 @@ function cityList(city) {
     return option;
 };
 
-function createList() {
+function createList(object) {
     let newNode = document.createElement("div");
-    newNode.textContent="new test card";
+    let objectOutput = `${object.name},${object.population},${object.latitude},${object.longitude},${object.howBig()}`
+    newNode.textContent=objectOutput;
     document.getElementById("cityList").appendChild(newNode);
 };
 
