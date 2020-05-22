@@ -39,7 +39,7 @@ cityForm.addEventListener("submit", async (e) => {
     let createCity = cityList(newCity);
     
     
-    idPickCity.appendChild(createCity);
+    // idPickCity.appendChild(createCity);
     console.log(newCom.list);
 });
 

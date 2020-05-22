@@ -11,7 +11,7 @@ async function loadAll() {
     return;
 };
 
-loadAll();
+// loadAll();
 
 class City {
     constructor(key, name, latitude, longitude, population) {
@@ -30,18 +30,6 @@ class City {
             throw (error);
         }
 
-        // const cityList = document.querySelector("#cityList");
-        // const row = document.createElement("tr"); 
-        // row.style.height = "15px";
-        // row.innerHTML = `
-        //     <td>${city.city}</td>
-        //     <td>${city.population}</td>
-        //     <td>${city.latitude}</td>
-        //     <td>${city.longitude}</td>
-        //     <td><a href="#">X</a></td>
-        //     `
-        // cityList.appendChild(row); 
-        // return;
     }
 
     showAll() {
@@ -74,37 +62,26 @@ class City {
     }
 
     howBig() {
-        if (this.population > 100000) { return "city" }
-        else if (this.population > 20000) { return"large town" }
-        else if (this.population > 1000) { return "town" }
-        else if (this.population > 100) { return "village" }
-        else { return "hamlet" }
+
+        if (this.population > 100000) { return "City" }
+        else if (this.population > 20000) { return"Large Town" }
+        else if (this.population > 1000) { return "Town" }
+        else if (this.population > 100) { return "Village" }
+        else { return "Hamlet" }
         
-
-        // for (let i = 0; i < data.length; i++) {
-        //     if (data[i].city === selectedCity) {
-
-                
-        //     };
-        // };
-        // idMessage.textContent = `This place is a ${placeType}.`;
-        // try {
-        //     switch (true) {
-        //         case (this.population > 100000):
-        //             return 'City';
-        //         case (this.population > 20000):
-        //             return 'Large Town';
-        //         case (this.population > 1000):
-        //             return 'Town';
-        //         case (this.population > 100):
-        //             return 'Village';
-        //         case (this.population < 100):
-        //             return 'Hamlet';
-        //     }
-        //     return 'zero inhabitants';
-        // } catch (error) {
-        //     throw (error);
-        // }
+    }
+    whichSphere() {
+        try {
+            if (this.latitude > 0) {
+                return 'Northern';
+            } else if (this.latitude < 0) {
+                return 'Southern';
+            } else if (this.latitude === 0) {
+                return 'Equator';
+            }
+        } catch (error) {
+            throw (error);
+        }
     }
 }
 
@@ -140,20 +117,8 @@ class Community {
         }
 
     }
+        
 
-    whichSphere(city) {
-        try {
-            if (city.latitude > 0) {
-                return 'Northern Hemisphere';
-            } else if (city.latitude < 0) {
-                return 'Southern Hemisphere';
-            } else if (city.latitude === 0) {
-                return 'Equator';
-            }
-        } catch (error) {
-            throw (error);
-        }
-    }
 
     getMostNorthern() {
         let mostNorthern = 0;
@@ -181,10 +146,11 @@ class Community {
 
     getPop() {
         let totalPopulation = 0;
-        for (let i = 0; i < data.length; i++) {
-            totalPopulation += data[i].population;
+        for (let i = 0; i < this.list.length; i++) {
+            totalPopulation += this.list[i].population;
         }
-        idMessage.textContent = `The total population of all cities is ${totalPopulation}`;
+        return totalPopulation;
+        // idMessage.textContent = `The total population of all cities is ${totalPopulation}`;
 
 
         // let total = 0;
