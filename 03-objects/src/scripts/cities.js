@@ -130,7 +130,7 @@ class Community {
                 mostNorthernName = currentName;
             }
         } if (mostNorthern > 0) {
-            return `${mostNorthernName} is the most Northern city with latitude of ${mostNorthern}`;
+            return mostNorthernName;
         }
     }
 

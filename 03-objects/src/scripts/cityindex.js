@@ -25,9 +25,9 @@ addEventListener("load", loadScript());
 
 // whichSphere.addEventListener("click", newCom.whichSphere);
 
-northernMost.addEventListener("click", newCom.getMostNorthern);
+// northernMost.addEventListener("click", newCom.getMostNorthern);
 
-southernMost.addEventListener("click", newCom.getMostSouthern);
+// southernMost.addEventListener("click", newCom.getMostSouthern);
 
 // idButtonShow.addEventListener("click", newCom.showAll);
 
@@ -41,6 +41,18 @@ cityForm.addEventListener("submit", async (e) => {
     
     // idPickCity.appendChild(createCity);
     console.log(newCom.list);
+    let getPop = newCom.getPop();
+    console.log('total population is',getPop);
+
+    let northDarling = newCom.getMostNorthern();
+    console.log('most northern is', northDarling);
+    
+    let southDarling = newCom.getMostSouthern();
+    console.log('most southern is', southDarling);
+    
+
+
+    
 });
 
 
