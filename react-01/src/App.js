@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import MyComponent from './components/MyComponent';
+import EvenComponent from './components/EvenComponent';
+import OddComponent from './components/OddComponent';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter: 21,
+      counter: 20,
       myState: "TBD"
     }
 
@@ -22,11 +24,13 @@ class App extends Component {
     });
 
     this.setState({
-      myState: "now:" + this.state.counter
+      myState: "now: " + this.state.counter
     });
     console.log(this.state.counter);
-
+    
   };
+
+
   render() {
     return (
       <div className="App">
@@ -43,6 +47,12 @@ class App extends Component {
           <MyComponent
             whatToSay=' What Ever'
             push={this.onPushMe}
+          />
+          <EvenComponent
+            counter={this.state.counter}
+          />
+          <OddComponent
+            counter={this.state.counter}
           />
           <a
             className="App-link"
