@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logo from './logo.svg';
 import earth from './earth.svg';
 import smile from './smile.svg';
 import sport from './sport.svg';
@@ -30,7 +31,8 @@ function App() {
 
   return (
     <div className="App">
-
+      <header className="App-header">
+      <img src={logo} className="App-logo" alt="logo" />
       <div className="row clearfix">
         <div onClick={myOnClickCount} className="span_4 column"
           id="Compass">
@@ -61,8 +63,6 @@ function App() {
           <img src={brain} className="App-logo" alt="logo" />
         </div>
       </div>
-
-      <header className="App-header">
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -75,6 +75,10 @@ function App() {
           Learn React
         </a>
       </header>
+
+      
+
+
     </div>
 
 
