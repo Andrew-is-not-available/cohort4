@@ -12,11 +12,16 @@ import './App.css';
 // let index=0;
 
 function App() {
-
+  // function show(e) {
+  //   alert(e.target.alt);
+  // }
   const [count, setCount] = useState(10);
   // let count = 10;
   function myOnClickCount(e) {
     // count++;
+    alert(e.target.id)
+    console.log(e.target.id);
+    
     console.log('we just clicked count', count);
     setCount(count + 1);
 
@@ -27,33 +32,33 @@ function App() {
     <div className="App">
 
       <div className="row clearfix">
-        <div className="span_4 column"
-        id="Compass">
+        <div onClick={myOnClickCount} className="span_4 column"
+          id="Compass">
           <img src={science} className="App-logo" alt="logo" />
         </div>
-        <div className="span_4 column"
-        id="Earth">
+        <div onClick={myOnClickCount} className="span_4 column"
+          id="Earth">
           <img src={earth} className="App-logo" alt="logo" />
         </div>
-        <div className="span_4 column"
-        id="Smile">
-          <img src={smile} className="App-logo-reverse" alt="logo" />
+        <div onClick={myOnClickCount} className="span_4 column"
+          id="Smile">
+          <img src={smile} className="App-logo" alt="logo" />
         </div>
-        <div className="span_4 column"
-        id="Ball">
+        <div onClick={myOnClickCount} className="span_4 column"
+          id="Ball">
           <img src={sport} className="App-logo" alt="logo" />
         </div>
-        <div onClick={myOnClickCount}className="span_4 column"
-        id="DNA">
+        <div onClick={myOnClickCount} className="span_4 column"
+          id="DNA">
           <img src={dna} className="App-logo" alt="logo" />
         </div>
-        <div onClick={myOnClickCount}className="span_4 column"
-        id="Virus">
+        <div onClick={myOnClickCount} className="span_4 column"
+          id="Virus">
           <img src={microbe} className="App-logo" alt="logo" />
         </div>
-        <div onClick={myOnClickCount}className="span_4 column"
-        id="Brain">
-          <img src={brain} className="App-logo-reverse" alt="logo" />
+        <div onClick={myOnClickCount} className="span_4 column"
+          id="Brain">
+          <img src={brain} className="App-logo" alt="logo" />
         </div>
       </div>
 

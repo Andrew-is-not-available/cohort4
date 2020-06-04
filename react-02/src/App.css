@@ -13,7 +13,7 @@
   }
 
   .App-logo-reverse {
-    animation: App-logo-spin reverse infinite 5s linear;
+    animation: App-logo-spin reverse infinite 10s linear;
   }
 
 }
@@ -21,7 +21,7 @@
 
 #Earth:hover{transform: skewY(20deg);}
 
-#Smile:hover{transform: scale(1.9) translate(20px,0px);}
+#Smile:hover{transform: skewY(20deg);}
 
 #Ball:hover{transform: translate(20px,10px);}
 
