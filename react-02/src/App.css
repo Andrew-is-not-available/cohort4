@@ -7,6 +7,11 @@
   pointer-events: none;
 }
 
+.App-logo-reverse {
+  height: 15vmin;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 10s linear;
@@ -41,13 +46,17 @@
 
 #Smile:active {
   background-color: mediumpurple;
-}#Ball:active {
+}
+#Ball:active {
   background-color: goldenrod;
-}#DNA:active {
+}
+#DNA:active {
   background-color: cyan;
-}#Virus:active {
+}
+#Virus:active {
   background-color: tan;
-}#Brain:active {
+}
+#Brain:active {
   background-color: tomato;
 }
 

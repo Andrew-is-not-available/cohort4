@@ -13,13 +13,11 @@ import './App.css';
 // let index=0;
 
 function App() {
-  // function show(e) {
-  //   alert(e.target.alt);
-  // }
+
   const [count, setCount] = useState(10);
-  // let count = 10;
+
   function myOnClickCount(e) {
-    // count++;
+
     alert(e.target.id)
     console.log(e.target.id);
     
@@ -36,7 +34,7 @@ function App() {
       <div className="row clearfix">
         <div onClick={myOnClickCount} className="span_4 column"
           id="Compass">
-          <img src={science} className="App-logo" alt="logo" />
+          <img src={science} className="App-logo-reverse" alt="logo" />
         </div>
         <div onClick={myOnClickCount} className="span_4 column"
           id="Earth">
@@ -52,7 +50,7 @@ function App() {
         </div>
         <div onClick={myOnClickCount} className="span_4 column"
           id="DNA">
-          <img src={dna} className="App-logo" alt="logo" />
+          <img src={dna} className="App-logo-reverse" alt="logo" />
         </div>
         <div onClick={myOnClickCount} className="span_4 column"
           id="Virus">
