@@ -15,6 +15,10 @@ class App extends Component {
 
   };
 
+  // This is a comment by Brennan // Sean here
+  // Killa was here :P 
+//Sahar is here
+// Duane is here
 
   onPushMe = () => {
     console.log("You pushed me");
