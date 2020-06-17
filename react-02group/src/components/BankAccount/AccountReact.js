@@ -76,12 +76,12 @@ class AccountCTRL extends Component {
             return (
 
                 <div className="account-details" onClick={this.clickMe}>
-
+                    
                     <h3>Account Registration</h3>
                     <div><label>Account Name: </label><input type="text" id="idaccountN" required /></div>
                     <div><label>Starting Balance: </label><input type="number" id="idstartingB" required /></div>
                     <button todo="register">Register My Account </button>
-                    <AccountCard/>
+                    <AccountCard onClick={this.clickMe}/>
                 </div>
             )
 
