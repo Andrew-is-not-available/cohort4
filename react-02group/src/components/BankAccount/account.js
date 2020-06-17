@@ -25,7 +25,8 @@ class AccountController {
             
             this.accountCards.push(newAccount);
 
-            return this.account;
+            // return this.account;
+            // return newAccount;
 
 
         } else {
@@ -135,6 +136,7 @@ class Account {
         return divCard;
     }
     accountDeposite(amount) {
+        // this.balance += parseFloat(amount)
         return (this.balance += parseFloat(amount));
     }
     accountWithdraw(amount) {
