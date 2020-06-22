@@ -22,6 +22,7 @@ class CityCTRL extends Component {
             // in population array the 0 is the total population and the next is
             // the number of cities
             populationArray: [0, 0],
+            hemisphere: "North",
             northernArray: [0, "cityName"],
             southernArray: [0, "cityName"]
         }
@@ -83,6 +84,7 @@ class CityCTRL extends Component {
                     population={x.cities[i].population}
                     moveInPopulation={this.moveInPopulation}
                     moveOutPopulation={this.moveOutPopulation}
+                    hemisphere={this.hemisphere}
                     delete= {this.delete}
                 // deposit ={this.deposit}
                 // withdraw = {this.withdraw}
@@ -159,6 +161,7 @@ class CityCTRL extends Component {
         this.setState({ populationArray: totalPopulation })
         // this.CreateReactComponents();
     }
+
     
     cityNorthern = () => {
         console.log("from city Northern, most N/S")
@@ -176,6 +179,11 @@ class CityCTRL extends Component {
 
         this.setState({ southernArray: cSouthern })
         // this.CreateReactComponents();
+    }
+
+    // New hemisphere test
+    cityHemisphere = () => {
+        this.setState({hemisphere: "South"});
     }
 
     render() {

@@ -45,6 +45,7 @@ class CityCard extends Component {
 
             <h2> {this.props.name}</h2>
             <h3> {this.props.population}</h3>
+            <h3> Hemisphere: {this.props.hemisphere}</h3>
             
             <input value={this.state.mInValue} onChange={this.moveInValue} type="number"></input>
             <button onClick={this.moveInCityCard}>Move In Population: </button><br/>
