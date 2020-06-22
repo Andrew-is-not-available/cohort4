@@ -41,7 +41,7 @@ class CityCard extends Component {
         // console.log(this.props)
         return (
         
-        <div>
+        <div className="container">
 
             <h2> {this.props.name}</h2>
             <h3> {this.props.population}</h3>

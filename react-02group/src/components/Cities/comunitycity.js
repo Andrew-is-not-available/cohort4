@@ -73,6 +73,7 @@ class Community {
 
         let key = String(this.nextKey());
 
+
         const newCity = new City(key, name, latitude, longitude, population);
         console.log(key);
         this.cities.push(newCity);

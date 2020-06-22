@@ -6,13 +6,17 @@ body {
   .AppTicTacToe {
     margin: 0 auto;
     width: 50%;
-    background-color: darkcyan;
+    background: #ffffff
+;
+;
     margin-bottom: 25px;
     color: white;
   }
   
 div {
-  background-color: darkcyan;
+  background: #ffffff
+;
+;
 }
 
   ol, ul {
