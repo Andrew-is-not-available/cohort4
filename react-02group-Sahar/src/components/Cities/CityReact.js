@@ -21,7 +21,7 @@ function whichSphere(latitude) {
     // else if (latitude === 0) {
     //     return "Equator";
     }
-    else return "on the Equator."
+    else return "on the Equator.";
 }
 
 function howBig(thepopulation) {
