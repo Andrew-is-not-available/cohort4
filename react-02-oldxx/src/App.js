@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Account from './components/BankAccount/AccountReact';
-import City from './components/Cities/CityReact'
+
 import c140b from './components/c140b';
 import Starter from './components/Starter';
 import TictacGame from './components/Tictactoe';
@@ -18,7 +17,7 @@ import './App.css';
 function App() {
 
   const [messageArea, setMessage] = useState("Edit src/App.js and save to reload.");
-  const [appToRun, setAppToRun] = useState("");
+  const [appToRun, setAppToRun] = useState("Starter");
   const [count, setCount] = useState(10);
 
   function myOnClickCount(e) {
@@ -32,8 +31,8 @@ function App() {
     // console.log('we just clicked count', count);
     setCount(count + 1);
 
-    appName = c140b.appList.find(element => appKey === element.key).appName;
-
+    appName = c140b.appList.find ( element => appKey === element.key ).appName;
+    
     setMessage(`Call Application #${appKey} Name is ${appName}`);
     setAppToRun(appName);
   }
@@ -43,8 +42,8 @@ function App() {
       <header className="App-header">
         <div className="row clearfix">
           <div onClick={myOnClickCount} className="span_4 column"
-            id="Science" ikey="1" >
-            <img src={science} className="App-logo-reverse" alt="logo" />
+            id="Science" ikey="1" > 
+            <img src={science} className="App-logo-reverse" alt="logo"/>
           </div>
           <div onClick={myOnClickCount} className="span_4 column"
             id="Earth" ikey="2">
@@ -64,7 +63,7 @@ function App() {
           </div>
           <div onClick={myOnClickCount} className="span_4 column"
             id="Virus" ikey="6">
-            <img src={microbe} className="App-logo" alt="logo" />
+            <img src={microbe} className="App-logo" alt="logo"  />
           </div>
           <div onClick={myOnClickCount} className="span_4 column"
             id="Brain" ikey="7">
@@ -73,29 +72,19 @@ function App() {
         </div>
       </header>
       <div className="AppArea">
-        {appToRun === "Starter" &&
-          <div>
-            <Starter sMessageArea={messageArea} />
-          </div>
-        }
-        {appToRun === "Tictactoe" &&
-          <div>
-            <TictacGame sMessageArea={messageArea} />
-          </div>
-        }
-        {appToRun === "Account" &&
-          <div>
-            <Account />
-          </div>
-        }
-        {appToRun === "Cities" &&
-          <div>
-            <City />
-          </div>
-        }
-      </div>
-    </div> 
-    
+            {appToRun !== "Tictactoe" &&
+                <div>
+                    <Starter sMessageArea={messageArea}/>
+                </div>
+            }
+            {appToRun === "Tictactoe" &&
+                <div>
+                    <TictacGame sMessageArea={messageArea}/>
+                </div>
+            }
+        </div>
+    </div>
+
   );
 }
 
