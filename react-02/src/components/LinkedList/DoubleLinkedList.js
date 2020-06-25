@@ -147,3 +147,5 @@ class DoublyLinkedList {
 
 
 }
+
+export { Node, DoublyLinkedList };

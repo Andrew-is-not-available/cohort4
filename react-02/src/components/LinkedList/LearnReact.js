@@ -1,34 +1,25 @@
 import React, { useState } from "react";
+import LinkedList from './LLPoJo.js';
 import "../../App.css";
-// class Node {
-//   constructor(value) {
-//     this.amount = value;
-//     this.subject = null;
-//     this.forwardNode = null;
-//   }
-// show()
-// }
-// class DoublyLinkedList {
-//   constructor() {
-//     this.length = 0;
-//     this.head = null;
-//     this.tail = null;
-//   }
-// }
+
+let x = new LinkedList.DoublyLinkedList();
 
 // Note: Plus button currently does not have any functionality.
-function Todo({ todo, index, completeTodo, removeTodo }) {
+// Note: You MUST call functions as arguments.
+function Todo({todo, time, index, completeTodo, removeTodo, appendTodo }) {
   return (
     <div
       className="todo"
       style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
     >
       {todo.text}
+      {todo.time}
 
       <div>
+        
         <button onClick={() => completeTodo(index)}>Complete</button>
         <button onClick={() => removeTodo(index)}>x</button>
-        <button>+</button>
+        <button onClick={() => appendTodo(index)}>+</button>
       </div>
     </div>
   );
@@ -36,13 +27,16 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
 
 function TodoForm({ addTodo }) {
   const [value, setValue] = useState("");
+  const [time, setTime] = useState(0);
+  const [id, setID] = useState("");
+  const [x, setX] = useState();
 
   const handleSubmit = e => {
     // preventDefault() prohibits default HTML 
     // form functions to break React.
     e.preventDefault();
-    if (!value) return;
-    addTodo(value);
+    if ((!value)) return;
+    addTodo(value,time);
     setValue("");
   };
 
@@ -75,8 +69,11 @@ function App() {
     }
   ]);
 
-  const addTodo = text => {
-    const newTodos = [...todos, { text }];
+  const addTodo = (text,time) => {
+    const newid= x.append (text, time)
+    const newTodos = [...todos, {newid,text,time}]
+    // Replace with something like x.append();
+    console.log(newTodos);
     setTodos(newTodos);
   };
 
@@ -86,12 +83,20 @@ function App() {
     setTodos(newTodos);
   };
 
-
   const removeTodo = index => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
     setTodos(newTodos);
+    // x.remove(newTodos);
   };
+
+  const appendTodo = index => {
+    // You would call the function from LLPoJo.js here
+    // Eg. LinkedList.append();
+    return null;
+  };
+
+
 // Here is Sahar
   /* TODO:
     - Important: Convert todo array into linked list.
@@ -110,6 +115,7 @@ function App() {
             todo={todo}
             completeTodo={completeTodo}
             removeTodo={removeTodo}
+            appendTodo={appendTodo}
           />
         ))}
         <TodoForm addTodo={addTodo} />
