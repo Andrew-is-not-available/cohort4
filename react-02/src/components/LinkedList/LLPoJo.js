@@ -18,7 +18,8 @@ class Node {
 // a Doubly Linked List has a length, a beginning (= head), an end (= tail)
 class DoublyLinkedList {
   constructor() {
-    this.count = 0;
+    // Needs to start at 3 due to the default values in the list being pre-rendered.
+    this.count = 3;
     this.current=null;
     this.head = null;
     this.tail = null;

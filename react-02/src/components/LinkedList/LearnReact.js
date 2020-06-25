@@ -13,7 +13,6 @@ function Todo({todo, time, index, completeTodo, removeTodo, appendTodo }) {
       style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
     >
       {todo.text}
-      {todo.time}
 
       <div>
         
@@ -36,36 +35,62 @@ function TodoForm({ addTodo }) {
     // form functions to break React.
     e.preventDefault();
     if ((!value)) return;
+    // if ((!time)) return;
     addTodo(value,time);
     setValue("");
+    // setTime("");
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        className="input"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-      />
+      <div className="inputTodo">
+        <input
+          type="text"
+          className="input"
+          value={value}
+          placeholder="enter a todo"
+          onChange={e => setValue(e.target.value)}
+        />
+      </div>
     </form>
+    
   );
 }
+
+/* ANDREW'S TIME INPUT:
+
+      <div className="inputTime">
+        <input
+          type="number"
+          className="input"
+          value={time}
+          placeholder="enter time"
+          onChange={e => setValue(e.target.time)}
+        />
+
+*/
 
 function App() {
   // Default to-do list items.
   const [todos, setTodos] = useState([
     {
+
+      newid: "k1",
       text: "Learn about React",
-      isCompleted: false
+      isCompleted: false,
+      time: "30"
     },
     {
+      newid: "k2",
       text: "Meet team on Discord",
-      isCompleted: false
+      isCompleted: false,
+      time: "20"
     },
     {
+      newid: "k3",
       text: "Discuss the requirements",
-      isCompleted: false
+      isCompleted: false,
+      time: "10"
     }
   ]);
 
@@ -96,13 +121,12 @@ function App() {
     return null;
   };
 
-
-// Here is Sahar
   /* TODO:
     - Important: Convert todo array into linked list.
-    - Add a plus button to each of the cards
+    - DONE: Add a plus button to each of the cards
     - Pass a time amount (number value - minutes)
     - Display a total of all amounts (Eg. all minutes)
+    - Figure out how to properly define Time !!
   */
 
   return (
@@ -113,6 +137,8 @@ function App() {
             key={index}
             index={index}
             todo={todo}
+            // Add time here
+            // time = {time} ?
             completeTodo={completeTodo}
             removeTodo={removeTodo}
             appendTodo={appendTodo}
