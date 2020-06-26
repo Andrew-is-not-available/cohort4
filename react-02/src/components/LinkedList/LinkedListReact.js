@@ -12,19 +12,11 @@ import "../../App.css";
 
 */
 
-function NewNodeComp () {
-    
-}
-
-function CurrentNodeComp () {
-    
-}
-
-
-
 function FormApp() {
 
     const todoLinkedList = new LinkedList.DoublyLinkedList();
+    const todoNode = new LinkedList.Node();
+    
 
     // Initial State
     const [task, setTask] = React.useState();
@@ -70,16 +62,30 @@ function FormApp() {
     };
     
     // How do display?
-    const display = (todoLinkedList) => {
-        let current = this.head;
-        let elements = [];
-        while (current !== null) {
-            elements.push(current.data);
-            current = current.next
-        }
-        return elements.join(" ");
+    const displayNode = () => {        
+        // let current = this.head;
+        // let elements = [];
+        // while (current !== null) {
+        //     elements.push(current.data);
+        //     current = current.next
+        // }
+        // return elements.join(" ");
+        const display = todoLinkedList.display();
+        console.log(display)
+        console.log(todoLinkedList.display());
     
     };
+
+    const newNode = () => {
+        // User inputs the task argument and the time argument
+        // The key argument is automatically generated
+        // with a counter loop.
+
+        // Right now, it is hard-coded.
+        let node = new LinkedList.Node("k1", 120, "Let's learn React");
+        console.log(node);
+        return node;
+    }
 
     // const addTodo = (text,time) => {
     return (
@@ -92,7 +98,8 @@ function FormApp() {
                 placeholder="enter a todo"
                 onChange={e => setTask(e.target.task)}
                 />
-                    <button onClick={(() => onSaveNode()), (() => display())}>save</button>
+                    <button onClick={(() => onSaveNode()), (() => displayNode())}>save</button>
+                    <button onClick={() => newNode()}>new</button>
                     {/* 
                     <button onClick={() => removeTodo(index)}>x</button>
                     <button onClick={() => appendTodo(index)}>+</button> 
