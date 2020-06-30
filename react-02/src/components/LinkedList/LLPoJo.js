@@ -4,11 +4,12 @@
 
 // a Node has a value, a pointer to the previous node (= prev), a pointer to the next node (= next)
 class Node {
-  constructor(id, todo, time) {
+  constructor(id, time, todo) {
     this.id = id;
     
-    this.todo = todo;
+    
     this.time = time;
+    this.todo = todo;
 
     this.next = null;
     this.prev = null
@@ -18,9 +19,8 @@ class Node {
 // a Doubly Linked List has a length, a beginning (= head), an end (= tail)
 class DoublyLinkedList {
   constructor() {
-    // Needs to start at 3 due to the default values in the list being pre-rendered.
-    this.count = 3;
-    this.current=null;
+    this.count = 0;
+    this.current = null;
     this.head = null;
     this.tail = null;
   }
@@ -137,11 +137,29 @@ class DoublyLinkedList {
     let current = this.head;
     let elements = [];
     while (current !== null) {
-      elements.push(current.data);
+      elements.push([current.id, current.todo ,current.time]);
+      // elements.push({id:current.id, task:current.todo, time:current.time})
+      // elements.push({id:current.id, tasktime:current.todo +current.time})
       current = current.next
     }
-    return elements.join(" ");
+    console.log(elements);
+    return elements;
+    // return elements.join(" ");
   }
+  // display() {
+  //   let current = this.head;
+  //   let elements = [];
+  //   // let br = document.createElement("br");
+  //   while (current !== null) {
+  // //     elements.push(
+  //   <currentList 
+    
+    // current.todo + " Estimated Time: " + current.time + " Minutes.");
+  //     current = current.next
+  //   }
+  //   return elements;
+  //   // return elements.join(" ");
+  // }
 
   isEmpty() {
     return this.length() < 1
