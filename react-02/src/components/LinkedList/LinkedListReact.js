@@ -1,9 +1,19 @@
 /* ACTUAL LINKEDLIST FILE */
 
+/* IMPORTANT: 
+
+If you try to update the state within the same app,
+add: const [counter, setCounter] = useState(0);
+in order to auto-update! (For debugging only.)
+*/
+
 import React, { useState } from "react";
 import LinkedList from "./LLPoJo.js";
 import "../../App.css";
 
+// let node = new LinkedList.Node('k1',120,"Lets learn React");
+// let todoLinkedList = new LinkedList.DoublyLinkedList();
+// todoLinkedList.appendAt(0,30, "Going for a walk");
 /*  TODO:
 
 June 26:
@@ -33,6 +43,7 @@ function LinkedListForm({ onSaveNode,todoLinkedList }) {
   const [task, setTask] = useState("");
   const [time, setTime] = useState(0);
   const [id, setID] = useState("");
+  // const [account, setAccount] = useState("");
 
 
   // const handleSubmit = e => {
@@ -56,6 +67,7 @@ function LinkedListForm({ onSaveNode,todoLinkedList }) {
         // Add functionality here.
         // handleSubmit(todo);
         onSaveNode(time, task);
+        // Show(todoLinkedList);
         // setTodoLinkedList(time, task);
         // Update the state of the list
         // whenever the button is pressed.
@@ -88,10 +100,18 @@ function LinkedListForm({ onSaveNode,todoLinkedList }) {
         onChange={(e) => setTask(e.target.value)}
       />
       <button todo="save">Create New Task</button>
-      
+      {/* <Show/> */}
     </div>
   );
 }
+// function Show(node){
+//   const currentTask=todoLinkedList.get()
+//   return (
+//     <div>
+//     <h3>{currentTask} </h3>
+//     </div>
+//   )
+// }
 
 function CurrentList (id, task, time) {
   return (
@@ -113,7 +133,12 @@ function CurrentList (id, task, time) {
 }
 
 function App() {
+  // For debugging only.
+  const [counter, setCounter] = useState(0);
   // Initalizes the functions of the DoublyLinkedList object.
+
+  // Will currently noit update the state, since it's
+  // within the app itself.
   const [todoLinkedList, setTodoLinkedList] = useState(
     new LinkedList.DoublyLinkedList()
     
@@ -129,26 +154,39 @@ function App() {
     // const newLL=todoLinkedList.push(newNode);
 
     setTodoLinkedList(todoLinkedList);
-    console.log("In the onSaveNode function.",todoLinkedList);
-    return(
-      <div>
-    Functioning List Display (Requires Icon-click):
-    <h2>List of To-dos from Savenode:</h2>
-    <span>
-      <ol>
+    // This counter is set in state and used to override React's default override
+    setCounter(counter+1);
+    console.log("V2", counter);
+    console.log("In the onSaveNode function.",todoLinkedList.get());
+    
+    
+    // return(
+    //   <div>
+    // Functioning List Display (Requires Icon-click):
+    // <h2>List of To-dos from Savenode:</h2>
+    // <span>
+    //   <ol>
       
-        {todoLinkedList.display().map((task,index) => (
-          <li key= {index}> 
-              {task.todo}
-              </li>
-        ))}
+    //     {todoLinkedList.display().map((task,index) => (
+    //       <li key= {index}> 
+    //           {task.todo}
+    //           </li>
+    //     ))}
 
-      </ol>
-    </span> 
-    </div>
-    )
+    //   </ol>
+    // </span> 
+    // </div>
+    // )
     
   };
+// const Show = () =>{
+//     const currentTask=todoLinkedList.get()
+//     return (
+//       <div>
+//       <h3>{currentTask} </h3>
+//       </div>
+//     )
+//   }
 
   // How do display?
   const DisplayNode = () => {
@@ -189,14 +227,17 @@ function App() {
         <span>
           <ol>
           
-            {todoLinkedList.display().map((task,index) => (
-              <li key= {index}> 
-              {task.todo}
+            {todoLinkedList.display().map((task) => (
+              <li> {task}
               </li>
             ))}
           </ol>
         </span> 
-       
+
+        
+        <p> Next: { todoLinkedList.nextNode() }</p>
+        <p> Current: { todoLinkedList.get() } </p>
+        <p> Previous: { todoLinkedList.prevNode() } </p>
         {/* {todoLinkedList.map} */}
         {/* {todoLinkedList.display().map((id,task,time) => (
         <CurrentList 
@@ -210,6 +251,8 @@ function App() {
          */}
 
         <LinkedListForm onSaveNode={onSaveNode} />
+        <button>Next Task</button>
+        <button>Previous Task</button>
         <button onClick={() => DisplayNode()}>Display Tasks</button>
         <button onClick={() => removeNode()}>Remove Task</button>
         <button onClick={() => displayLengthNode()}>Display # of Tasks</button>

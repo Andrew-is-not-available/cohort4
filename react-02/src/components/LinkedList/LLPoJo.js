@@ -82,7 +82,14 @@ class DoublyLinkedList {
   // }
 
   get() {
-    return this.current;
+    // console.log(this.current);
+   if (this.head == null) {
+     console.log("This is an empty!");
+     return null;
+   } else {
+    console.log(this.current.todo)
+    return this.current.todo;
+   }
   }
 
   // appendAfter(item) {
@@ -180,24 +187,30 @@ class DoublyLinkedList {
   }
 
   nextNode() {
-    if ((this.current) && (this.current !== this.tail)) {
+    if (this.head == null) {
+      return null;
+    }
+    else if ((this.current) && (this.current !== this.tail)) {
       this.current = this.current.next;
-      return this.current;
+      return this.current.todo;
     }
     else if(this.current === this.tail) {
       // alert("you are at last item in todo list.")
-      return this.tail;
+      return this.tail.todo;
     }
   }
 
   prevNode() {
-    if ((this.current) && (this.current !== this.head)) {
+    if (this.head == null) {
+      return null;
+    }
+    else if ((this.current) && (this.current !== this.head)) {
       this.current = this.current.prev;
-    return this.current;
+    return this.current.todo;
     }
     else if (this.current === this.head) {
       // alert("you are at first item in todo list")
-      return this.head;
+      return this.head.tod;
     }
   }
 
